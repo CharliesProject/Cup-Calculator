@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Kalkulator Szklanek</string>
+    <string name="default_wheat">g mąki pszennej to</string>
+    <string name="default_rye">g mąki żytniej to</string>
+    <string name="default_oats">g mąki owsianej to</string>
+    <string name="default_rice">g mąki ryżowej to</string>
+    <string name="default_oat_flakes">g płatków owsianych to</string>
+
+    <string name="wheat_flour_text">Mąka pszenna</string>
+    <string name="rye_flour_text">Mąka żytnia</string>
+    <string name="oats_flour_text">Mąka owsiana</string>
+    <string name="rice_flour_text">Mąka ryżowa</string>
+    <string name="oat_flakes_text">Płatki owsiane</string>
+
+    <string name="edit_text_hint">Tu wipisz liczbę w gramach</string>
+    <string name="grams">g</string>
+    <string name="calculate_btn_text">PRZELICZ GRAMY NA SZKLANKI</string>
+    <string name="choose_ingredient_text">Wybierz składnik:</string>
+    <string name="snack_bar_text">Podaj liczbę gramów mąki</string>
+    <string name="exit_btn_text">Wyjdź</string>
+</resources>

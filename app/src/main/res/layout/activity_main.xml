@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.kalkulatorszklanek.model.MainViewModel" />
+
+        <variable
+            name="activityMain"
+            type="com.example.kalkulatorszklanek.MainActivity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/main_padding">
+
+            <TextView
+                android:id="@+id/choose_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_ingredient_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/wheat_flour_radio_button"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/wheat_flour"
+                app:layout_constraintTop_toBottomOf="@id/choose_ingredient">
+
+                <RadioButton
+                    android:id="@+id/wheat_flour_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/img_size"
+                    android:onClick="@{() -> viewModel.setFlour(viewModel.WHEAT_FLOUR_WEIGHT,@string/default_wheat,  viewModel.ONE_CUP)}"
+                    android:text="@string/wheat_flour_text"
+                    app:layout_constraintStart_toStartOf="@id/ingredients"
+                    app:layout_constraintTop_toTopOf="@id/ingredients" />
+
+                <RadioButton
+                    android:id="@+id/rye_flour_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/img_size"
+                    android:onClick="@{() -> viewModel.setFlour(viewModel.RYE_FLOUR_WEIGHT, @string/default_rye, viewModel.ONE_CUP)}"
+                    android:text="@string/rye_flour_text"
+                    app:layout_constraintStart_toStartOf="@id/ingredients"
+                    app:layout_constraintTop_toBottomOf="@id/wheat_flour_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/oats_flour_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/img_size"
+                    android:onClick="@{() -> viewModel.setFlour(viewModel.OATS_FLOUR_WEIGHT, @string/default_oats, viewModel.ONE_CUP)}"
+                    android:text="@string/oats_flour_text"
+                    app:layout_constraintStart_toStartOf="@id/ingredients"
+                    app:layout_constraintTop_toBottomOf="@id/rye_flour_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/rice_flour_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/img_size"
+                    android:onClick="@{() -> viewModel.setFlour(viewModel.RICE_FLOUR_WEIGHT, @string/default_rice, viewModel.ONE_CUP)}"
+                    android:text="@string/rice_flour_text"
+                    app:layout_constraintStart_toStartOf="@id/ingredients"
+                    app:layout_constraintTop_toBottomOf="@id/oats_flour_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/oat_flakes_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/img_size"
+                    android:onClick="@{() -> viewModel.setFlour(viewModel.OAT_FLAKES_WEIGHT, @string/default_oat_flakes, viewModel.ONE_CUP)}"
+                    android:text="@string/oat_flakes_text"
+                    app:layout_constraintStart_toStartOf="@id/ingredients"
+                    app:layout_constraintTop_toBottomOf="@id/rice_flour_radio_button" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/wheat_flour"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/choose_ingredient"
+                app:srcCompat="@drawable/wheat" />
+
+            <ImageView
+                android:id="@+id/rye_flour"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wheat_flour"
+                app:srcCompat="@drawable/rye" />
+
+            <ImageView
+                android:id="@+id/oat_flour"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rye_flour"
+                app:srcCompat="@drawable/oats" />
+
+            <ImageView
+                android:id="@+id/rice_flour"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/oat_flour"
+                app:srcCompat="@drawable/rice" />
+
+            <ImageView
+                android:id="@+id/oat_flakes"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rice_flour"
+                app:srcCompat="@drawable/oats" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enter_quantity_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edit_text_hint"
+                app:boxStrokeColor="@color/amber_900"
+                app:endIconDrawable="@drawable/ic_backspace_24"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/amber_900"
+                app:boxBackgroundColor="@color/yellow_50"
+                app:layout_constraintStart_toStartOf="@id/calculate_btn"
+                app:layout_constraintEnd_toEndOf="@id/calculate_btn"
+                app:layout_constraintTop_toBottomOf="@id/oat_flakes"
+                app:startIconDrawable="@drawable/ic_scale_24"
+                app:suffixText="@string/grams">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/calculate_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calculate_btn_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/enter_quantity_container"
+                app:layout_constraintBottom_toTopOf="@id/result_text"/>
+
+            <TextView
+                android:id="@+id/result_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.flourDisplayedText.toString()}"
+                app:layout_constraintBottom_toTopOf="@id/exit_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calculate_btn"
+                tools:text="Example text" />
+
+            <Button
+                android:id="@+id/exit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exit_btn_text"
+                app:backgroundTint="@color/amber_900"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/result_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
