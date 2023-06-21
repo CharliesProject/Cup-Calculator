@@ -18,4 +18,5 @@
     <string name="choose_ingredient_text">Wybierz składnik:</string>
     <string name="snack_bar_text">Podaj liczbę gramów mąki</string>
     <string name="exit_btn_text">Wyjdź</string>
+    <string name="default_cup_text">1 szkl. = 250 ml</string>
 </resources>
