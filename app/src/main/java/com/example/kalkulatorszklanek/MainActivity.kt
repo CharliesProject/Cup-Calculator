@@ -1,8 +1,11 @@
 package com.example.kalkulatorszklanek
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
+import androidx.annotation.ContentView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -25,7 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             viewModel = mainViewModel
             activityMain = this@MainActivity
-            calculateBtn.setOnClickListener { checkInputTextIsNull() }
+            calculateBtn.setOnClickListener {
+                checkInputTextIsNull()
+                closeKeyBoard()
+            }
+            mainScreen.setOnClickListener { closeKeyBoard() }
             exitBtn.setOnClickListener { exitApp() }
         }
 
@@ -68,6 +75,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun exitApp() {
         finish()
+    }
+
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
 }

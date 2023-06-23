@@ -20,6 +20,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_screen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/main_padding">
@@ -46,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:checkedButton="@id/wheat_flour_radio_button"
                 android:orientation="vertical"
+                android:layout_marginLeft="@dimen/radio_button_padding"
                 app:layout_constraintStart_toEndOf="@id/wheat_flour"
                 app:layout_constraintTop_toBottomOf="@id/choose_ingredient">
 
